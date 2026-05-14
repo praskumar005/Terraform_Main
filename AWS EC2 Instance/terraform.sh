@@ -64,3 +64,13 @@ $ terraform apply --auto-approve #Automatically applied without any permission l
 #aws_instance.ec2: Creation complete after 37s [id=i-04d989322e5ff04af]
 #Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
+$ terraform destroy --auto-approve #Use if you really want to destroy the created resources
+
+#Example Response
+#Plan: 0 to add, 0 to change, 1 to destroy.
+#aws_instance.ec2: Destroying... [id=i-04d989322e5ff04af]
+#aws_instance.ec2: Still destroying... [id=i-04d989322e5ff04af, 00m10s elapsed]
+#aws_instance.ec2: Still destroying... [id=i-04d989322e5ff04af, 00m20s elapsed]
+#aws_instance.ec2: Still destroying... [id=i-04d989322e5ff04af, 00m30s elapsed]
+#aws_instance.ec2: Destruction complete after 31s
+#Destroy complete! Resources: 1 destroyed.
