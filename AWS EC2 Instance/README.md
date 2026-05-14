@@ -1,98 +1,104 @@
-AWS EC2 Instance Creation — Step-by-Step Guide (Manual Method)
+**AWS EC2 Instance Creation — Step-by-Step Guide (Manual Method)**
 
-What is an EC2 Instance?
+**What is an EC2 Instance?**
 
-An EC2 instance is a virtual server in Amazon Web Services.
-You can use it to host applications, websites, databases, Jenkins servers, Boomi Molecules, APIs, and more.
+--> An EC2 instance is a virtual server in Amazon Web Services.
+--> You can use it to host applications, websites, databases, Jenkins servers, Boomi Molecules, APIs, and more.
 
-Think of it like:
+**Think of it like:**
 
 Physical Server → Traditional Data Center
 EC2 Instance → Virtual Cloud Server in AWS
 Basic AWS Concepts You Should Know
 
-1. Region
+**1. Region**
 
-A geographical location where AWS has data centers.
+--> A geographical location where AWS has data centers.
 
-Examples:
+**Examples:**
 
 ap-south-1 → Mumbai
 us-east-1 → Virginia
 
-Choose the nearest region for lower latency.
+--> Choose the nearest region for lower latency.
 
-2. Availability Zone (AZ)
+**2. Availability Zone (AZ)**
 
-Each region contains multiple data centers.
+--> Each region contains multiple data centers.
 
-Example:
+**Example:**
 
 ap-south-1a
 ap-south-1b
 
-Used for High Availability.
+--> Used for High Availability.
 
-3. AMI (Amazon Machine Image)
+**3. AMI (Amazon Machine Image)**
 
-Template used to create the server OS.
+--> Template used to create the server OS.
 
-Examples:
+**Examples:**
 
 Ubuntu
 Amazon Linux
 Red Hat
 Windows Server
-4. Instance Type
 
-Defines:
+**4. Instance Type**
 
-CPU
-RAM
-Network performance
+**Defines:**
 
-Examples:
+--> CPU
+--> RAM
+--> Network performance
 
-t2.micro → Free tier
-t3.medium
-m5.large
-5. Key Pair
+**Examples:**
 
-Used for SSH login.
+--> t2.micro → Free tier
+--> t3.medium
+--> m5.large
 
-Linux:
+**5. Key Pair**
 
-ssh -i key.pem ubuntu@public-ip
+--> Used for SSH login.
 
-Without the key pair, you cannot log in.
+**Linux:**
 
-6. Security Group
+ $ ssh -i key.pem ubuntu@public-ip
 
-Acts like a firewall.
+--> Without the key pair, you cannot log in.
 
-Controls:
+**6. Security Group**
 
-SSH access
-HTTP/HTTPS
-Custom ports
+--> Acts like a firewall.
 
-Example:
+**Controls:**
 
-Port	Purpose
-22	SSH
-80	HTTP
-443	HTTPS
-8080	Jenkins
-7. EBS Volume
+--> SSH access
+--> HTTP/HTTPS
+--> Custom ports
 
-Storage attached to EC2.
+**Example:**
 
-Like:
+**Port**	  **Purpose**
+22	          SSH
+80	          HTTP
+443	          HTTPS
+8080	        Jenkins
 
-Hard Disk
-SSD
-Step-by-Step EC2 Instance Creation
-Step 1 — Login to AWS Console
+**7. EBS Volume**
+
+--> Storage attached to EC2.
+
+**Like:**
+
+--> Hard Disk
+--> SSD
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+**Step-by-Step EC2 Instance Creation**
+**Step 1 — Login to AWS Console**
 
 Open:
 
@@ -100,7 +106,7 @@ AWS Console
 
 Login with your AWS account.
 
-Step 2 — Open EC2 Dashboard
+**Step 2 — Open EC2 Dashboard**
 
 Search:
 
@@ -109,12 +115,14 @@ EC2
 Click:
 
 Amazon EC2
-Step 3 — Launch Instance
+
+**Step 3 — Launch Instance**
 
 Click:
 
 Launch Instance
-Step 4 — Give Instance Name
+
+**Step 4 — Give Instance Name**
 
 Example:
 
@@ -127,7 +135,8 @@ Examples:
 Jenkins-Server
 Boomi-Test
 Nginx-LB
-Step 5 — Choose Operating System (AMI)
+
+**Step 5 — Choose Operating System (AMI)**
 
 Example:
 
@@ -137,7 +146,8 @@ Amazon Linux 2023
 Recommended for beginners:
 
 Ubuntu Server
-Step 6 — Choose Instance Type
+
+**Step 6 — Choose Instance Type**
 
 For practice:
 
@@ -151,7 +161,8 @@ Type	Usage
 t2.micro	Small testing
 t3.medium	Medium workloads
 m5.large	Production
-Step 7 — Create or Select Key Pair
+
+**Step 7 — Create or Select Key Pair**
 Create New Key Pair
 
 Choose:
@@ -173,7 +184,8 @@ Important:
 Never share .pem file
 Store securely
 Required for SSH
-Step 8 — Configure Network Settings
+
+**Step 8 — Configure Network Settings**
 Allow SSH
 
 Enable:
@@ -202,7 +214,8 @@ Jenkins
 Port:
 
 8080
-Step 9 — Configure Storage
+
+**Step 9 — Configure Storage**
 
 Default:
 
@@ -216,10 +229,11 @@ Can increase:
 
 Storage Types:
 
-Type	Description
-gp2/gp3	SSD
-io1/io2	High performance
-Step 10 — Launch Instance
+Type	    Description
+gp2/gp3	  SSD
+io1/io2	  High performance
+
+**Step 10 — Launch Instance**
 
 Click:
 
@@ -227,7 +241,7 @@ Launch Instance
 
 AWS now creates the VM.
 
-Step 11 — View Running Instance
+**Step 11 — View Running Instance**
 
 Go to:
 
@@ -243,54 +257,58 @@ Status
 Wait until:
 
 Running
-Step 12 — Connect to Instance
+
+**Step 12 — Connect to Instance**
 Linux/Mac SSH
 
 Move key:
 
-chmod 400 dev-key.pem
+ $ chmod 400 dev-key.pem
 
 Connect:
 
-ssh -i dev-key.pem ubuntu@PUBLIC-IP
+ $ ssh -i dev-key.pem ubuntu@PUBLIC-IP
 
 Example:
 
-ssh -i dev-key.pem ubuntu@13.233.xx.xx
-Step 13 — Verify Server
+ $ ssh -i dev-key.pem ubuntu@13.233.xx.xx
+ 
+**Step 13 — Verify Server**
 
 Run:
 
-hostname
+ $ hostname
 
 Check OS:
 
-cat /etc/os-release
+ $ cat /etc/os-release
 
 Check memory:
 
-free -h
+ $ free -h
 
 Check disk:
 
-df -h
+ $ df -h
+
 Install Basic Packages
 
 Update server:
 
-sudo apt update -y
+ $ sudo apt update -y
 
 Install nginx:
 
-sudo apt install nginx -y
+ $ sudo apt install nginx -y
 
 Start nginx:
 
-sudo systemctl start nginx
+ $ sudo systemctl start nginx
 
 Enable nginx:
 
-sudo systemctl enable nginx
+ $ sudo systemctl enable nginx
+
 Access Website
 
 Open browser:
@@ -300,7 +318,9 @@ http://PUBLIC-IP
 You should see:
 
 Welcome to nginx
-Important EC2 Concepts
+
+**Important EC2 Concepts**
+
 Public IP
 
 Used for internet access.
@@ -308,6 +328,7 @@ Used for internet access.
 Example:
 
 13.x.x.x
+
 Private IP
 
 Internal AWS communication.
@@ -321,26 +342,31 @@ Used between:
 App server
 DB server
 Load balancer
-Stop vs Terminate
-Action	Meaning
-Stop	Server OFF
-Start	Server ON
-Terminate	Permanent delete
-Common Beginner Mistakes
+
+**Stop vs Terminate**
+Action	    Meaning
+Stop	      Server OFF
+Start	      Server ON
+Terminate	  Permanent delete
+
+**Common Beginner Mistakes**
+
 1. Security Group Missing Port 22
 
 SSH won't work.
 
 2. Wrong Username
-OS	Username
-Ubuntu	ubuntu
-Amazon Linux	ec2-user
-CentOS	centos
+
+OS	            Username
+Ubuntu	        ubuntu
+Amazon Linux	  ec2-user
+CentOS	        centos
+
 3. PEM File Permission Error
 
 Fix:
-
-chmod 400 key.pem
+ $ chmod 400 key.pem
+ 
 4. Instance in Private Subnet
 
-No internet access.
+No internet access.As it does not have public IP by default, So we can access this Instance through Bastion Host/Jump Server located in Public Subnet.
