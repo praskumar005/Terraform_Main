@@ -41,3 +41,26 @@ Default output format [None]: "json" # Optional-> Enter to skip
 $ aws s3 ls
 
 #It will give prompt the list of S3 buckets present in your AWS account and this is the way we can confirm AWS CLI is Autenticated successfully
+
+#Go to the directory where the .tf files are created and perform the below commands 
+$ terraform init
+
+#Terraform has been successfully initialized!
+#You may now begin working with Terraform. Try running "terraform plan" to seeany changes that are required for your infrastructure. All Terraform commands should now work.
+
+$ terraform plan
+
+#Plan: 1 to add, 0 to change, 0 to destroy.
+#Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
+$ terraform apply --auto-approve #Automatically applied without any permission like "Yes" or "No"
+
+# Example Response
+#Plan: 1 to add, 0 to change, 0 to destroy.
+#aws_instance.ec2: Creating...
+#aws_instance.ec2: Still creating... [00m10s elapsed]
+#aws_instance.ec2: Still creating... [00m20s elapsed]
+#aws_instance.ec2: Still creating... [00m30s elapsed]
+#aws_instance.ec2: Creation complete after 37s [id=i-04d989322e5ff04af]
+#Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
