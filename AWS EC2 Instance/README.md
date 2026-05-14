@@ -1,4 +1,5 @@
 AWS EC2 Instance Creation — Step-by-Step Guide (Manual Method)
+
 What is an EC2 Instance?
 
 An EC2 instance is a virtual server in Amazon Web Services.
@@ -9,6 +10,7 @@ Think of it like:
 Physical Server → Traditional Data Center
 EC2 Instance → Virtual Cloud Server in AWS
 Basic AWS Concepts You Should Know
+
 1. Region
 
 A geographical location where AWS has data centers.
