@@ -41,6 +41,7 @@ Default output format [None]: "json" # Optional-> Enter to skip
 $ aws s3 ls
 
 #It will give prompt the list of S3 buckets present in your AWS account and this is the way we can confirm AWS CLI is Autenticated successfully
+#If the Access key is misconfigured then we get this error : aws: [ERROR]: An error occurred (InvalidAccessKeyId) when calling the ListBuckets operation: The AWS Access Key Id you provided does not exist in our records.
 
 #Go to the directory where the .tf files are created and perform the below commands 
 $ terraform init
