@@ -1,4 +1,5 @@
 **AWS EC2 Instance Creation — Step-by-Step Guide (Manual Method)**
+-------------------------------------------------------------------------
 
 **What is an EC2 Instance?**
 
