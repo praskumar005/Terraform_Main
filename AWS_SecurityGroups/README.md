@@ -1,4 +1,5 @@
 **AWS Security Group Manual Creation — Step-by-Step**
+-----------------------------------------------------
 
 What is a Security Group?
 
